@@ -161,5 +161,3 @@ function onHover() {
 $(':checkbox').checkboxpicker();
 
 $('.list').animateCss('zoomIn');
-
-// $(':checkbox').checkboxpicker();

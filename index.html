@@ -19,11 +19,9 @@
     <!-- link to css files -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/carousel.css" rel="stylesheet">
-
-
   </head>
   <body ng-app="mainApp">
-<div class="wrapper">
+   <div class="wrapper">
       <nav id="header" class="navbar navbar-fixed-top">
               <div id="header-container" class="container navbar-container">
                   <div class="navbar-header">
@@ -385,62 +383,30 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Investor Details</h4>
               </div>
-              <div class="modal-body">
-                <form class="form-horizontal" role="form" name="userForm" ng-submit="submitForm()" novalidate>
+            <form id="myform" class="form-horizontal" role="form">
                 <div class="modal-body">
-                    <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
-                        <div class="col-sm-10" >
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Full Name" ng-model="user.name" required>
-                            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
-                            <div ng-messages="userForm.name.$error">
-                              <!-- <div ng-message="required">This field is required</div> -->
-                            </div>
-                        </div>
+                  <div class="form-group">
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="userName" placeholder="Full Name" required/>
                     </div>
-                    <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
-                        <div class="col-sm-10" >
-                            <input type="text" name="company" class="form-control" id="company" placeholder="Company/Organization" ng-model="user.name" required>
-                            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
-                            <div ng-messages="userForm.name.$error">
-                              <!-- <div ng-message="required">This field is required</div> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
-                        <div class="col-sm-10">
-                            <input type="email" name="email" class="form-control" id="email" placeholder="example@domain.com" ng-model="user.email" required>
-                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
-                            <div ng-messages="userForm.email.$error">
-                              <!-- <div ng-message="required">This field is required</div> -->
-                              <div ng-message="email">Your email address is invalid</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group" ng-class="{'has-error': userForm.phone.$error.number}">
+                  </div>
+                    <div class="form-group">
                       <div class="col-sm-10">
-                          <input type="number"
-                                 class="form-control"
-                                 ng-minlength="10"
-                                 ng-maxlength="10"
-                                 id="inputPhone"
-                                 name="phone"
-                                 placeholder="Phone"
-                                 ng-model="user.phone"
-                                 required>
-                                 <div ng-messages="userForm.phone.$error">
-                                   <!-- <div ng-message="required">This field is required</div> -->
-                                   <div ng-message="inputPhone">Valid phone number is required</div>
-                                 </div>
-                          <p class="help-block"
-                                ng-show="((userForm.phone.$error.minlength ||
-                                         userForm.phone.$error.maxlength) &&
-                                         userForm.phone.$dirty) ">
-                                         phone number should be 10 digits
-                          </p>
-                        </div>
+                        <input type="text" class="form-control" name="userCompany" placeholder="Company/Organization" required/>
                       </div>
-
-                      <div class="">
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" name="Email" placeholder="your@domain.com" required/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-10">
+                        <input type="tel" class="form-control" pattern="(^\d{3}-\d{3}-\d{4}$)|([0-9]{10})" name="Phone" placeholder="Phone number e.g 0123456789 or 012-345-6789" title="Phone should be in the format of 0123456789 or 012-345-6789" required/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-10">
                         <div class="material-switch pull-left">
                           <h5>Interested in Business</h5>
                             <input id="someSwitchOptionSuccess" name="someSwitchOption001" type="checkbox"/>
@@ -448,17 +414,20 @@
                         </div>
                         <div class="material-switch pull-right">
                           <h5>Is it ok to contact you</h5>
-                            <input type="checkbox" data-off-label="false" data-on-label="false" data-off-icon-cls="glyphicon-thumbs-down" data-on-icon-cls="glyphicon-thumbs-up">
+                          <input id="contactSuccess" name="contactPerson" type="checkbox" checked/>
+                          <label for="contactSuccess" class="label-success"></label>
                         </div>
-
                       </div>
 
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" name="button" class="btn btn-default">Submit</button>
+                    </div>
+                  </div>
             </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default">Submit</button>
-              </div>
+
+
+
             </div>
           </div>
         </div>
@@ -502,7 +471,6 @@
                             <input type="text" name="name" class="form-control" id="contact-name" placeholder="Full Name" ng-model="user.name" required>
                             <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
                             <div ng-messages="userForm.name.$error">
-                              <!-- <div ng-message="required">This field is required</div> -->
                             </div>
                         </div>
                     </div>
@@ -512,7 +480,6 @@
                             <input type="email" name="email" class="form-control" id="contact-email" placeholder="example@domain.com" ng-model="user.email" required>
                             <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
                             <div ng-messages="userForm.email.$error">
-                              <!-- <div ng-message="required">This field is required</div> -->
                               <div ng-message="email">Your email address is invalid</div>
                             </div>
                         </div>
@@ -539,7 +506,6 @@
                         <div class="col-sm-10">
                             <textarea class="form-control" name = "userMessage" rows="4" ng-model="message" ng-maxlength="1000" required></textarea>
                             <div ng-messages="userForm.userMessage.$error">
-                              <!-- <div ng-message="required">This field is required</div> -->
                               <div ng-message="maxlength">Message is required and must not exceed 1000 characters</div>
                             </div>
                         </div>
@@ -577,7 +543,6 @@
 </div>
 
 <!-- Angular js -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-messages.min.js"></script>
 
@@ -589,14 +554,6 @@
 <script src="js/controllers/contactForm.js"></script>
 <script src="js/factories/dataService.js"></script>
 
-<!-- <script>
-$("[data-toggle=popover]").popover({
-    html: true,
- content: function() {
-          return $('#myPopover').html();
-        }
-});
-</script> -->
 
   </body>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->

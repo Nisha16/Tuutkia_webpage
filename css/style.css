@@ -514,7 +514,7 @@ a:focus {
 	line-height: 1.1em;
 	color: #fff;
 	background-color: #2C4770;
-	/*margin: auto;*/
+	margin: auto;
 	border-radius: 50%;
 	height: 16em;
 	width: 16em;
@@ -523,8 +523,7 @@ a:focus {
     padding-bottom: 30px;
     font-size: 18px;
     max-width: 100%;
-    float: none;
-    display: block;
+    overflow:auto;
 }
 .orange-circle-button:hover {
 	color:#ffffff;
